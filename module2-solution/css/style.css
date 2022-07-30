@@ -1,0 +1,99 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%; /* 62.5% of 16px which is 10px */
+}
+
+body {
+    font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1.4rem;
+}
+
+/* Typography */
+h1 {
+    text-align: center;
+    font-size: 1.75em;
+}
+
+h2 {
+    margin: 0;
+    font-size: 1.25em;
+}
+/* Contents */
+
+.container {
+    display: grid;
+
+}
+
+.box {
+    background: lightgray;
+    border: 1px solid #000;
+    margin: 1rem 4rem;
+    max-height: 160px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.4s ease-out;
+}
+
+.box:hover {
+    max-height: fit-content;
+}
+
+.box__content {
+    font-weight: 700;
+    margin: 0;
+    padding: 4rem 1rem 1rem 1rem;
+    text-align: left;
+}
+
+.box__header {
+    border: 1px solid #000;
+    border-right: 0;
+    border-top: 0;
+    padding: 5px 0;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    width: 150px;
+}
+
+.box__header-one {
+    background: gold;
+}
+
+.box__header-two {
+    background: tomato;
+    color: #fff;
+}
+
+.box__header-three {
+    background: dodgerblue;
+    color: #fff;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .container {
+        grid-template-columns: repeat(2, auto);
+    }
+
+    .box-three {
+        grid-column: 1 / -1;
+    }
+
+    .box {
+        margin: 1rem 1.5rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        grid-template-columns: repeat(3, auto);
+    }
+
+    .box {
+        margin: 1rem 1.5rem;
+    }
+}
