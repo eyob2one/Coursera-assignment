@@ -1,10 +1,115 @@
+* {
+    box-sizing: border-box;
+}
+
 html {
     font-size: 62.5%;
+}
+
+body {
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 1.4rem;
+    line-height: 1.5;
+}
+
+/* Typography */
+h1, h2, h3 {
+    margin: 0.5rem;
+}
+
+h1 {
+    text-align: center;
+    font-size: 1.75em;
+}
+
+h2 {
+    font-size: 1.50em;
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.25em;
+    text-align: center;
+    font-weight: 700;
+}
+
+/* Contents */
+
+.container {
+    display: grid;
+
+}
+
+.box {
+    background: lightgray;
+    border: 1px solid #000;
+    margin: 1rem 2rem;
+    max-height: fit-content;
+    position: relative;
+}
+
+.box > p {
+    margin-bottom: 2rem;
+}
+
+.box > a {
+    position: absolute;
+    bottom: 0;
+}
+
+.box__content {
+    font-weight: 700;
+    margin: 0;
+    padding: 1rem;
+    text-align: left;
+}
+
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .container {
+        grid-template-columns: repeat(2, auto);
+    }
+
+    .box-three {
+        grid-column: 1 / -1;
+    }
+
+    .box {
+        margin: 1rem 1.5rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        grid-template-columns: repeat(3, auto);
+    }
+
+    .box {
+        margin: 1rem 1.5rem;
+    }
 }
 
 /* Links */
 a {
     text-decoration: none;
+}
+
+.link-arrow {
+    color: #ff3400;
+    text-transform: capitalize;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 5px;
+}
+  
+.link-arrow::after {
+    content: "-->";
+    margin-left: 5px;
+    transition: margin 0.15s;
+}
+  
+.link-arrow:hover::after {
+    margin-left: 10px;
 }
 
 /* Lists */
@@ -14,6 +119,7 @@ a {
     color: var(--color-headings);
 }
 
+/* Icon */
 .icon {
     width: 40px;
     height: 40px;
@@ -57,7 +163,7 @@ a {
   
 .nav__toggler {
     opacity: 0.5;
-    transition: box-shadow 0.15s;
+    transition: box-shadow, fill 0.15s ease-in-out;
     cursor: pointer;
 }
 .collapsible__heading {
@@ -81,6 +187,13 @@ a {
 .nav.collapsible--expanded .nav__toggler {
     opacity: 1;
     box-shadow: 0 0 0 3px #777;
+    fill: #fff;
     border-radius: 5px;
 }
-  
+
+@media screen and (min-width: 768px) {
+    .nav__toggler, .nav__list {
+        display: none;
+    }
+}
+
